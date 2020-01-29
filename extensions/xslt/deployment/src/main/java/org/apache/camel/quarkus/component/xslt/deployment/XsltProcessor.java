@@ -60,7 +60,7 @@ class XsltProcessor {
     }
 
     @Record(ExecutionTime.STATIC_INIT)
-    @BuildStep
+    @BuildStep(loadsApplicationClasses = true)
     CamelBeanBuildItem xsltComponent(
             CamelXsltRecorder recorder,
             CamelXsltConfig config,
@@ -80,7 +80,7 @@ class XsltProcessor {
                 recorder.createXsltComponent(config, builder));
     }
 
-    @BuildStep
+    @BuildStep(loadsApplicationClasses = true)
     void xsltResources(
             CamelXsltConfig config,
             BuildProducer<XsltGeneratedClassBuildItem> generatedNames,
